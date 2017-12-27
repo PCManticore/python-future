@@ -77,6 +77,7 @@ from libfuturize.fixes import (lib2to3_fix_names_stage1,
                                lib2to3_fix_names_stage2,
                                libfuturize_fix_names_stage1,
                                libfuturize_fix_names_stage2)
+from libfuturize.internal_fixes import libfuturize_additional_fixes
 
 fixer_pkg = 'libfuturize.fixes'
 
@@ -185,6 +186,7 @@ def main(args=None):
     if options.stage2 or options.both_stages:
         avail_fixes.update(lib2to3_fix_names_stage2)
         avail_fixes.update(libfuturize_fix_names_stage2)
+    avail_fixes.update(libfuturize_additional_fixes)
 
     if options.unicode_literals:
         avail_fixes.add('libfuturize.fixes.fix_unicode_literals_import')
